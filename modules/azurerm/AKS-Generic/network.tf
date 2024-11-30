@@ -15,7 +15,6 @@ resource "azurerm_subnet" "aks_node_pool_subnet" {
   virtual_network_name                      = var.virtual_network_name
   address_prefixes                          = [var.aks_node_pool_subnet_address_prefix]
   service_endpoints                         = var.aks_nodepool_subnet_allowed_service_endpoints
-  private_endpoint_network_policies_enabled = var.aks_nodepool_subnet_enforce_private_link_endpoint_network_policies
 }
 
 resource "azurerm_route_table" "aks_node_pool_route_table" {
