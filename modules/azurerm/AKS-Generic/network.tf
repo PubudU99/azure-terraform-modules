@@ -60,10 +60,10 @@ resource "azurerm_network_security_rule" "aks_node_pool_subnet_nsg_rules" {
   destination_port_range                     = each.value.destination_port_range
   source_address_prefix                      = each.value.source_address_prefix
   destination_address_prefix                 = each.value.destination_address_prefix
-  source_port_ranges                         = each.value.source_port_ranges
-  destination_port_ranges                    = each.value.destination_port_ranges
-  source_address_prefixes                    = each.value.source_address_prefixes
-  destination_address_prefixes               = each.value.destination_address_prefixes
+  # source_port_ranges                         = each.value.source_port_ranges
+  # destination_port_ranges                    = each.value.destination_port_ranges
+  # source_address_prefixes                    = each.value.source_address_prefixes
+  # destination_address_prefixes               = each.value.destination_address_prefixes
   source_application_security_group_ids      = each.value.source_application_security_group_ids
   destination_application_security_group_ids = each.value.destination_application_security_group_ids
   depends_on = [
@@ -87,13 +87,12 @@ resource "azurerm_subnet" "internal_load_balancer_subnet" {
   virtual_network_name                      = var.virtual_network_name
   address_prefixes                          = [var.internal_loadbalancer_subnet_address_prefix]
   service_endpoints                         = ["Microsoft.Sql", "Microsoft.ContainerRegistry", "Microsoft.EventHub", "Microsoft.Storage"]
-#  private_endpoint_network_policies_enabled = var.internal_load_balancer_subnet_enforce_private_link_endpoint_network_policies
 }
 
 resource "azurerm_network_security_group" "internal_load_balancer_subnet_nsg" {
   location            = var.location
   name                = join("-", ["nsg", var.aks_load_balancer_subnet_network_security_group_name])
-  resource_group_name = var.virtual_network_resource_group_name
+  resource_group_name = var.aks_resource_group_name
 }
 
 resource "azurerm_network_security_rule" "aks_load_balancer_subnet_nsg_rules" {
@@ -110,10 +109,10 @@ resource "azurerm_network_security_rule" "aks_load_balancer_subnet_nsg_rules" {
   destination_port_range                     = each.value.destination_port_range
   source_address_prefix                      = each.value.source_address_prefix
   destination_address_prefix                 = each.value.destination_address_prefix
-  source_port_ranges                         = each.value.source_port_ranges
-  destination_port_ranges                    = each.value.destination_port_ranges
-  source_address_prefixes                    = each.value.source_address_prefixes
-  destination_address_prefixes               = each.value.destination_address_prefixes
+  # source_port_ranges                         = each.value.source_port_ranges
+  # destination_port_ranges                    = each.value.destination_port_ranges
+  # source_address_prefixes                    = each.value.source_address_prefixes
+  # destination_address_prefixes               = each.value.destination_address_prefixes
   source_application_security_group_ids      = each.value.source_application_security_group_ids
   destination_application_security_group_ids = each.value.destination_application_security_group_ids
   depends_on = [
