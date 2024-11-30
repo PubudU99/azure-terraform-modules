@@ -41,13 +41,12 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     zones                        = var.default_node_pool_availability_zones
     os_disk_size_gb              = var.default_node_pool_os_disk_size_gb
     os_disk_type                 = var.default_node_pool_os_disk_type
-  #  enable_auto_scaling          = var.default_node_pool_enable_auto_scaling
     vnet_subnet_id               = azurerm_subnet.aks_node_pool_subnet.id
+    auto_scaling_enabled         = var.default_node_pool_enable_auto_scaling
     max_count                    = var.default_node_pool_max_count
     min_count                    = var.default_node_pool_min_count
     max_pods                     = var.default_node_pool_max_pods
     orchestrator_version         = var.default_node_pool_orchestrator_version
-  #  enable_node_public_ip        = false
     only_critical_addons_enabled = var.default_node_pool_only_critical_addons_enabled
   }
 
@@ -56,7 +55,6 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
   }
 
   azure_active_directory_role_based_access_control {
-  #  managed                = true
     admin_group_object_ids = var.aks_admin_group_object_ids
     azure_rbac_enabled     = var.aks_azure_rbac_enabled
   }
@@ -71,7 +69,6 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     load_balancer_sku  = "standard"
     service_cidr       = var.service_cidr
     dns_service_ip     = var.dns_service_ip
- #   docker_bridge_cidr = var.docker_bridge_cidr
     outbound_type      = var.outbound_type
   }
 
