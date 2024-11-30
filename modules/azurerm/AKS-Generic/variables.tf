@@ -195,11 +195,6 @@ variable "dns_service_ip" {
   type        = string
 }
 
-variable "docker_bridge_cidr" {
-  description = "CIDR block for the docker bridge"
-  type        = string
-}
-
 variable "private_cluster_public_fqdn_enable" {
   default     = false
   description = "Flag for whether a public FQDN for this private cluster should be added."
