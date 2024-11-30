@@ -87,7 +87,7 @@ resource "azurerm_subnet" "internal_load_balancer_subnet" {
   virtual_network_name                      = var.virtual_network_name
   address_prefixes                          = [var.internal_loadbalancer_subnet_address_prefix]
   service_endpoints                         = ["Microsoft.Sql", "Microsoft.ContainerRegistry", "Microsoft.EventHub", "Microsoft.Storage"]
-  private_endpoint_network_policies_enabled = var.internal_load_balancer_subnet_enforce_private_link_endpoint_network_policies
+#  private_endpoint_network_policies_enabled = var.internal_load_balancer_subnet_enforce_private_link_endpoint_network_policies
 }
 
 resource "azurerm_network_security_group" "internal_load_balancer_subnet_nsg" {
