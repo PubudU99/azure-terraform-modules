@@ -54,11 +54,6 @@ resource "azurerm_kubernetes_cluster" "aks_cluster" {
     type = "SystemAssigned"
   }
 
-  azure_active_directory_role_based_access_control {
-    admin_group_object_ids = var.aks_admin_group_object_ids
-    azure_rbac_enabled     = var.aks_azure_rbac_enabled
-  }
-
   oms_agent {
     log_analytics_workspace_id = var.log_analytics_workspace_id
   }
