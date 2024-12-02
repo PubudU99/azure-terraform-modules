@@ -110,14 +110,14 @@ variable "aks_node_pool_subnet_nsg_rules" {
     direction                                  = string
     access                                     = string
     protocol                                   = string
-    source_port_range                          = string
-    # source_port_ranges                         = list(string)
-    destination_port_range                     = string
-    # destination_port_ranges                    = list(string)
-    source_address_prefix                      = string
-    # source_address_prefixes                    = list(string)
-    destination_address_prefix                 = string
-    # destination_address_prefixes               = list(string)
+    # source_port_range                          = string
+    source_port_ranges                         = list(string)
+    # destination_port_range                     = string
+    destination_port_ranges                    = list(string)
+    # source_address_prefix                      = string
+    source_address_prefixes                    = list(string)
+    # destination_address_prefix                 = string
+    destination_address_prefixes               = list(string)
     source_application_security_group_ids      = list(string)
     destination_application_security_group_ids = list(string)
   }))
@@ -133,14 +133,14 @@ variable "aks_load_balancer_subnet_nsg_rules" {
     direction                                  = string
     access                                     = string
     protocol                                   = string
-    source_port_range                          = string
-    # source_port_ranges                         = list(string)
-    destination_port_range                     = string
-    # destination_port_ranges                    = list(string)
-    source_address_prefix                      = string
-    # source_address_prefixes                    = list(string)
-    destination_address_prefix                 = string
-    # destination_address_prefixes               = list(string)
+    # source_port_range                          = string
+    source_port_ranges                         = list(string)
+    # destination_port_range                     = string
+    destination_port_ranges                    = list(string)
+    # source_address_prefix                      = string
+    source_address_prefixes                    = list(string)
+    # destination_address_prefix                 = string
+    destination_address_prefixes               = list(string)
     source_application_security_group_ids      = list(string)
     destination_application_security_group_ids = list(string)
   }))
